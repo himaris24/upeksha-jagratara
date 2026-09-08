@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upeksha Jagratara — Akademi Pencak Silat</title>
+  <meta name="description"
+    content="Ketenangan yang Penuh Kewaspadaan. Website resmi Akademi Pencak Silat Upeksha Jagratara.">
+
+  <!-- Favicon — logo asli dari brand kit (icon karambit + ombak) -->
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo/favicon.png">
+
+  <!-- Open Graph (preview saat di-share ke WA/Instagram/dll) -->
+  <meta property="og:title" content="Upeksha Jagratara — Akademi Pencak Silat">
+  <meta property="og:description"
+    content="Ketenangan yang Penuh Kewaspadaan. Wadah pengembangan diri melalui pencak silat, kedisiplinan, persaudaraan, dan pengendalian diri.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo/og-image.png">
+
+  <!-- Google Fonts — Playfair Display (heading) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <nav class="navbar__inner">
+      <a href="#hero" class="navbar__logo">
+        <img src="assets/logo/logo-navbar.png" alt="Logo Upeksha Jagratara">
+        Upeksha Jagratara
+      </a>
+      <button class="navbar__toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="#hero" class="navbar__link">Beranda</a></li>
+        <li><a href="#tentang" class="navbar__link">Tentang</a></li>
+        <li><a href="#materi" class="navbar__link">Materi</a></li>
+        <li><a href="#jadwal" class="navbar__link">Jadwal</a></li>
+        <li><a href="#agenda" class="navbar__link">Agenda</a></li>
+        <li><a href="#dokumentasi" class="navbar__link">Dokumentasi</a></li>
+        <li><a href="#kontak" class="navbar__link">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== F-01 HERO ===== -->
+    <section id="hero" class="hero">
+      <h1 class="hero__title">UPEKSHA JAGRATARA</h1>
+      <p class="hero__subtitle">Ketenangan yang Penuh Kewaspadaan</p>
+      <p class="hero__desc">Wadah pengembangan diri melalui pencak silat, kedisiplinan, persaudaraan, dan pengendalian
+        diri.</p>
+      <div class="hero__cta">
+        <a href="#jadwal" class="btn btn--primary">Lihat Jadwal</a>
+        <a href="#lokasi" class="btn btn--outline">Temukan Lokasi</a>
+      </div>
+    </section>
+
+    <!-- ===== F-02 TENTANG ===== -->
+    <section id="tentang" class="tentang">
+      <h2 class="section-title">Tentang Upeksha Jagratara</h2>
+      <p class="tentang__text">
+        Nama <strong>Upeksha Jagratara</strong> terbentuk pada <strong>2 Januari 2023</strong>,
+        hasil diskusi dua orang pendiri.
+      </p>
+      <blockquote class="tentang__quote">"Jiwa yang tenang dan selalu waspada"</blockquote>
+    </section>
+
+    <!-- ===== F-03 FILOSOFI ===== -->
+    <!-- ⚠️ Teks direvisi mengikuti naskah resmi brand kit logo (bukan lagi ringkasan 1 kalimat) -->
+    <section id="filosofi" class="filosofi">
+      <h2 class="section-title">Filosofi Kami</h2>
+      <div class="filosofi__grid">
+        <div class="filosofi__card">
+          <h3>Ombak</h3>
+          <p>
+            Ombak menjadi representasi ketenangan yang dinamis — terus bergerak namun tetap
+            mengikuti keseimbangan alam. Melambangkan pesilat yang mampu beradaptasi tanpa
+            kehilangan prinsip dan kendali diri, selaras dengan kelenturan, penguasaan teknik,
+            serta kemampuan membaca arah gerakan lawan.
+          </p>
+        </div>
+        <div class="filosofi__card">
+          <h3>Karambit</h3>
+          <p>
+            Karambit merepresentasikan kewaspadaan, kesiapan, dan ketegasan — sisi "Jagratara".
+            Bentuknya yang melengkung mencerminkan teknik yang tidak selalu mengandalkan kekuatan
+            frontal, melainkan kecerdasan gerak, presisi, dan kontrol. Filosofi Setia Hati:
+            menjaga tindakan lahir dan batin agar tidak melukai diri sendiri maupun orang lain.
+          </p>
+        </div>
+      </div>
+      <blockquote class="tentang__quote" style="margin-top: var(--space-4);">
+        "Kekuatan sejati bukan hanya tentang kemampuan bertarung, tetapi tentang kemampuan
+        menjaga ketenangan, mengendalikan diri, membaca keadaan, dan bertindak dengan tepat."
+      </blockquote>
+    </section>
+
+    <!-- ===== F-04 APA YANG DIPELAJARI (data: materi.json) ===== -->
+    <section id="materi" class="materi">
+      <h2 class="section-title">Apa yang Dipelajari</h2>
+      <div class="materi__grid" id="materiContainer">
+        <!-- JS: render 3 kartu (dasar / teknik / pembentukan_diri) dari materi.json -->
+      </div>
+    </section>
+
+    <!-- ===== F-05 JADWAL LATIHAN (data: jadwal.json) ===== -->
+    <section id="jadwal" class="jadwal">
+      <h2 class="section-title">Jadwal Latihan</h2>
+      <div class="jadwal__grid" id="jadwalContainer">
+        <!-- JS: render card per hari dari jadwal.json -->
+      </div>
+      <p class="jadwal__note">Jadwal dapat berubah sesuai agenda organisasi.</p>
+    </section>
+
+    <!-- ===== F-06 AGENDA KEGIATAN (data: agenda.json) ===== -->
+    <section id="agenda" class="agenda">
+      <h2 class="section-title">Agenda Kegiatan</h2>
+      <ul class="agenda__list" id="agendaContainer">
+        <!-- JS: render list agenda dari agenda.json, sort by tanggal -->
+      </ul>
+    </section>
+
+    <!-- ===== F-07 DOKUMENTASI (data: galeri.json) ===== -->
+    <section id="dokumentasi" class="dokumentasi">
+      <h2 class="section-title">Dokumentasi</h2>
+      <div class="dokumentasi__filter" id="galeriFilter">
+        <button class="filter-btn is-active" data-filter="semua">Semua</button>
+        <button class="filter-btn" data-filter="latihan">Latihan</button>
+        <button class="filter-btn" data-filter="kegiatan">Kegiatan</button>
+        <button class="filter-btn" data-filter="prestasi">Prestasi</button>
+        <button class="filter-btn" data-filter="tempat">Tempat</button>
+      </div>
+      <div class="dokumentasi__grid" id="galeriContainer">
+        <!-- JS: render grid foto dari galeri.json -->
+      </div>
+    </section>
+
+    <!-- Modal galeri (dipanggil JS saat foto diklik) -->
+    <div class="modal" id="galeriModal" hidden>
+      <button class="modal__close" id="modalClose" aria-label="Tutup">&times;</button>
+      <img class="modal__image" id="modalImage" src="" alt="">
+      <p class="modal__caption" id="modalCaption"></p>
+    </div>
+
+    <!-- ===== F-08 TESTIMONI (data: testimoni.json) ===== -->
+    <section id="testimoni" class="testimoni">
+      <h2 class="section-title">Testimoni</h2>
+      <div class="testimoni__grid" id="testimoniContainer">
+        <!-- JS: render 3-5 kutipan dari testimoni.json -->
+      </div>
+    </section>
+
+    <!-- ===== F-09 LOKASI ===== -->
+    <section id="lokasi" class="lokasi">
+      <h2 class="section-title">📍 Tempat Latihan</h2>
+      <div class="lokasi__content">
+        <div class="lokasi__info">
+          <p class="lokasi__nama">Lapangan Latihan Upeksha Jagratara</p>
+          <p class="lokasi__alamat">
+            Kedung Pengawas, Kec. Babelan, Kabupaten Bekasi, Jawa Barat 17610.
+            <br>Terletak di: Masjid Jami Daruttaqwa
+          </p>
+          <a href="https://maps.app.goo.gl/x1nrUTGaGJGAN8Wh6?g_st=aw" target="_blank" rel="noopener"
+            class="btn btn--primary">
+            Buka di Google Maps
+          </a>
+        </div>
+        <div class="lokasi__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8809786794886!2d107.0445113!3d-6.146684100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6989001abd4237%3A0x80d0726bbdfa8f3a!2sPSHT%20RAYON%20PONDOK%20AFI!5e0!3m2!1sid!2sid!4v1788501541272!5m2!1sid!2sid"
+            width="100%" height="300" style="border:0;" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== F-10 CTA BERGABUNG ===== -->
+    <section id="cta" class="cta">
+      <h2 class="cta__title">Siap Memulai Latihan?</h2>
+      <p class="cta__desc">Kenali kemampuanmu. Bangun disiplinmu. Tumbuh bersama Upeksha Jagratara.</p>
+      <a href="https://wa.me/6285959903910" target="_blank" rel="noopener" class="btn btn--cta">
+        Hubungi Kami
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ===== F-11 FOOTER & KONTAK ===== -->
+  <footer id="kontak" class="footer">
+    <p class="footer__brand">Upeksha Jagratara</p>
+    <div class="footer__contact">
+      <a href="https://wa.me/6285959903910" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/upekshajagratara/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:upekshajagratara@gmail.com" target="_blank" rel="noopener">Email</a>
+    </div>
+    <p class="footer__copyright">© <span id="currentYear"></span> Upeksha Jagratara. Seluruh hak dilindungi.</p>
+  </footer>
+
+  <!-- ===== TEMPLATE untuk <jadwal-card> Web Component ===== -->
+  <!-- ⚠️ Fallback warna diupdate: --color-gold sudah tidak ada, diganti --color-accent -->
+  <template id="jadwal-card-template">
+    <style>
+      .card {
+        background: var(--color-white, #fff);
+        border-radius: var(--radius-md, 16px);
+        box-shadow: var(--shadow-sm, 0 2px 8px rgba(13, 27, 42, .08));
+        border-top: 3px solid var(--color-accent, #C6A15B);
+        padding: var(--space-3, 1.5rem);
+        font-family: var(--font-body, sans-serif);
+      }
+
+      h3 {
+        font-family: var(--font-heading, serif);
+        margin-bottom: .5rem;
+        color: var(--color-primary, #1B4B66);
+      }
+
+      p {
+        margin: 0;
+      }
+    </style>
+    <div class="card">
+      <h3></h3>
+      <p class="waktu"></p>
+      <p class="lokasi"></p>
+    </div>
+  </template>
+
+  <script type="module" src="js/components/jadwal-card.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/agenda.js"></script>
+  <script type="module" src="js/gallery.js"></script>
+</body>
+
+</html>
