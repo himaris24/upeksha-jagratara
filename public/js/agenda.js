@@ -1,5 +1,6 @@
 /* =========================================================
    agenda.js — Render Jadwal (F-05) & Agenda (F-06)
+   ⚠️ jadwal.json & agenda.json sekarang dibungkus { "items": [...] }
    ========================================================= */
 import { fetchJSON } from './main.js';
 
@@ -7,13 +8,13 @@ import { fetchJSON } from './main.js';
 async function renderJadwal() {
   const container = document.getElementById('jadwalContainer');
   const data = await fetchJSON('data/jadwal.json');
-  if (!data) {
+  if (!data || !data.items) {
     container.innerHTML = '<p>Jadwal belum bisa dimuat.</p>';
     return;
   }
 
-  container.innerHTML = ''; // reset
-  data.forEach((j) => {
+  container.innerHTML = '';
+  data.items.forEach((j) => {
     const card = document.createElement('jadwal-card');
     card.setAttribute('hari', j.hari);
     card.setAttribute('waktu', j.waktu);
@@ -26,12 +27,12 @@ async function renderJadwal() {
 async function renderAgenda() {
   const container = document.getElementById('agendaContainer');
   const data = await fetchJSON('data/agenda.json');
-  if (!data) {
+  if (!data || !data.items) {
     container.innerHTML = '<p>Agenda belum bisa dimuat.</p>';
     return;
   }
 
-  const sorted = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
+  const sorted = [...data.items].sort((a, b) => new Date(a.date) - new Date(b.date));
 
   container.innerHTML = sorted
     .map((a) => {

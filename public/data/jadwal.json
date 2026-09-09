@@ -1,12 +1,19 @@
-[
-  {
-    "hari": "Selasa",
-    "waktu": "19.00–21.00",
-    "lokasi": "Lapangan Utama"
-  },
-  {
-    "hari": "Kamis",
-    "waktu": "19.00–21.00",
-    "lokasi": "Lapangan Utama"
-  }
-]
+{
+  "items": [
+    {
+      "hari": "Selasa",
+      "waktu": "19.00–21.00",
+      "lokasi": "Lapangan Utama"
+    },
+    {
+      "hari": "Kamis",
+      "waktu": "19.00–21.00",
+      "lokasi": "Lapangan Utama"
+    },
+    {
+      "hari": "Minggu",
+      "waktu": "07.00–09.00",
+      "lokasi": "Lapangan Utama"
+    }
+  ]
+}

@@ -177,35 +177,47 @@ Dikembangkan oleh tim internal Upeksha Jagratara sebagai project pembelajaran RP
 ## 📜 Lisensi
 
 Project ini dibuat untuk keperluan internal akademi dan portofolio pembelajaran.
+
 ```
 26_upeksha_jagratara
 ├─ DESIGN.md
 ├─ PRD.md
 ├─ README.md
 ├─ STITCH-PROMPTS-V3-REFERENCE-MATCH.md
+├─ UJ.ApizdeDitor_20260904_221451_0000.pdf
 ├─ netlify.toml
 ├─ public
+│  ├─ admin
+│  │  ├─ config.yml
+│  │  └─ index.html
 │  ├─ assets
 │  │  ├─ icons
 │  │  ├─ images
+│  │  │  ├─ image.webp
+│  │  │  └─ o2sn.jpg
 │  │  └─ logo
-│  │     └─ image.webp
+│  │     ├─ favicon.png
+│  │     ├─ logo-full-lockup.png
+│  │     ├─ logo-navbar.png
+│  │     └─ og-image.png
 │  ├─ css
 │  │  └─ style.css
 │  ├─ data
 │  │  ├─ agenda.json
 │  │  ├─ galeri.json
 │  │  ├─ jadwal.json
+│  │  ├─ kategori.json
 │  │  ├─ materi.json
 │  │  └─ testimoni.json
-│  ├─ favicon.svg
 │  ├─ index.html
-│  └─ js
-│     ├─ agenda.js
-│     ├─ components
-│     │  └─ jadwal-card.js
-│     ├─ gallery.js
-│     └─ main.js
+│  ├─ js
+│  │  ├─ agenda.js
+│  │  ├─ components
+│  │  │  └─ jadwal-card.js
+│  │  ├─ gallery.js
+│  │  └─ main.js
+│  ├─ robots.txt
+│  └─ sitemap.xml
 └─ stitch_upeksha_jagratara_design_system.zip
 
 ```

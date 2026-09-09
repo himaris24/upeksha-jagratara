@@ -1,0 +1,145 @@
+backend:
+  name: github
+  repo: himaris24/upeksha-jagratara
+  branch: main
+  base_url: "https://sveltia-cms-auth.harisadrianramadhani.workers.dev"
+
+logo_url: "https://upeksha-jagratara.netlify.app/assets/logo/logo-full-lockup.png"
+locale: "id_ID"
+display_url: "https://upeksha-jagratara.netlify.app"
+
+media_folder: "public/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "kategori"
+    label: "Kategori Dokumentasi"
+    files:
+      - file: "public/data/kategori.json"
+        label: "Kelola Kategori"
+        name: "kategori_file"
+        format: "json"
+        fields:
+          - label: "Daftar Kategori"
+            name: "items"
+            widget: "list"
+            fields:
+              - {
+                  label: "ID Kategori (huruf kecil tanpa spasi, cth: latihan)",
+                  name: "id",
+                  widget: "string",
+                }
+              - {
+                  label: "Nama Kategori (tampil di tombol filter)",
+                  name: "label",
+                  widget: "string",
+                }
+
+  - name: "jadwal"
+    label: "Jadwal Latihan"
+    files:
+      - file: "public/data/jadwal.json"
+        label: "Jadwal Latihan"
+        name: "jadwal"
+        format: "json"
+        fields:
+          - label: "Daftar Jadwal"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Hari", name: "hari", widget: "string" }
+              - {
+                  label: "Waktu",
+                  name: "waktu",
+                  widget: "string",
+                  hint: "Contoh: 19.00–21.00",
+                }
+              - { label: "Lokasi", name: "lokasi", widget: "string" }
+
+  - name: "agenda"
+    label: "Agenda Kegiatan"
+    files:
+      - file: "public/data/agenda.json"
+        label: "Agenda Kegiatan"
+        name: "agenda"
+        format: "json"
+        fields:
+          - label: "Daftar Agenda"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Judul Kegiatan", name: "title", widget: "string" }
+              - {
+                  label: "Tanggal",
+                  name: "date",
+                  widget: "datetime",
+                  format: "YYYY-MM-DD",
+                  date_format: "YYYY-MM-DD",
+                  time_format: false,
+                }
+              - { label: "Lokasi", name: "location", widget: "string" }
+
+  - name: "materi"
+    label: "Apa yang Dipelajari"
+    files:
+      - file: "public/data/materi.json"
+        label: "Materi Latihan"
+        name: "materi"
+        format: "json"
+        fields:
+          - label: "Dasar"
+            name: "dasar"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - label: "Teknik"
+            name: "teknik"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - label: "Pembentukan Diri"
+            name: "pembentukan_diri"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+
+  - name: "galeri"
+    label: "Dokumentasi"
+    files:
+      - file: "public/data/galeri.json"
+        label: "Dokumentasi"
+        name: "galeri"
+        format: "json"
+        fields:
+          - label: "Daftar Foto"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Judul", name: "judul", widget: "string" }
+              - {
+                  label: "ID Kategori (ketik sesuai ID kategori, cth: latihan)",
+                  name: "kategori",
+                  widget: "string",
+                  hint: "Contoh: latihan, kegiatan, prestasi, tempat",
+                }
+              - {
+                  label: "Tanggal Kegiatan",
+                  name: "tanggal_upload",
+                  widget: "datetime",
+                  format: "YYYY-MM-DD",
+                  date_format: "YYYY-MM-DD",
+                  time_format: false,
+                }
+              - { label: "Foto", name: "gambar", widget: "image" }
+
+  - name: "testimoni"
+    label: "Testimoni"
+    files:
+      - file: "public/data/testimoni.json"
+        label: "Testimoni"
+        name: "testimoni"
+        format: "json"
+        fields:
+          - label: "Daftar Testimoni"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Nama", name: "nama", widget: "string" }
+              - { label: "Isi Testimoni", name: "isi", widget: "text" }
