@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://upeksha-jagratara.netlify.app/sitemap.xml
