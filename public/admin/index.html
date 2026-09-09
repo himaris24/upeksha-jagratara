@@ -5,13 +5,35 @@
   <meta charset="UTF-8">
   <title>Admin — Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
-  <!-- Script Netlify Identity (Dibutuhkan untuk login Email/Password) -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
-  <!-- Aplikasi CMS dimuat di sini -->
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+  <!-- Aplikasi CMS -->
+  <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
+
+  <!-- Trik DOM Manipulation untuk menimpa teks hardcode -->
+  <script>
+    let hasChanged = false;
+    const observer = new MutationObserver(() => {
+      if (hasChanged) return; 
+      
+      // Mencari setiap teks di dalam dokumen secara spesifik
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      while (node = walker.nextNode()) {
+        if (node.nodeValue.trim() === 'Sveltia CMS') {
+          // Ganti teksnya begitu ditemukan
+          node.nodeValue = 'Panel Admin Upeksha Jagratara';
+          hasChanged = true;
+          observer.disconnect(); // Matikan pencarian agar performa web tetap ringan
+          break;
+        }
+      }
+    });
+    
+    // Pantau perubahan elemen di dalam body
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
 </body>
 
 </html>
