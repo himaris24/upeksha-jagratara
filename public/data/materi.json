@@ -1,0 +1,23 @@
+{
+  "dasar": [
+    "Kuda-kuda",
+    "Sikap pasang",
+    "Langkah",
+    "Pukulan",
+    "Tendangan"
+  ],
+  "teknik": [
+    "Elakan",
+    "Tangkisan",
+    "Jatuhan",
+    "Kuncian",
+    "Teknik senjata"
+  ],
+  "pembentukan_diri": [
+    "Disiplin",
+    "Pengendalian emosi",
+    "Kepercayaan diri",
+    "Persaudaraan",
+    "Tanggung jawab"
+  ]
+}

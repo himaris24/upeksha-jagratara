@@ -1,0 +1,179 @@
+/* =========================================================
+   UPEKSHA JAGRATARA — style.css
+   ========================================================= */
+
+:root {
+  --color-primary: #1B4B66;   
+  --color-navy: #0D1B2A;      
+  --color-bg: #F7F5F0;        
+  --color-accent: #C6A15B;    
+  --color-white: #FFFFFF;     
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-full: 999px;
+  --shadow-sm: 0 2px 8px rgba(13, 27, 42, 0.08);
+  --shadow-md: 0 8px 24px rgba(13, 27, 42, 0.12);
+
+  --max-width: 1200px;
+  --navbar-height: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--navbar-height); }
+body { font-family: var(--font-body); color: var(--color-navy); background: var(--color-bg); line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; }
+
+section { max-width: var(--max-width); margin-inline: auto; padding: var(--space-6) var(--space-3); }
+.section-title { font-size: 2rem; text-align: center; margin-bottom: var(--space-4); color: var(--color-navy); }
+
+/* Tombol Global */
+.btn { display: inline-block; padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); font-weight: 600; border: 2px solid transparent; transition: all 0.15s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.btn--primary { background: var(--color-primary); color: var(--color-white); }
+.btn--outline { background: transparent; border-color: var(--color-white); color: var(--color-white); }
+.btn--cta { background: var(--color-accent); color: var(--color-navy); }
+
+/* Tombol Login Admin di Navbar */
+.btn--login {
+  background-color: var(--color-primary);
+  color: var(--color-white) !important;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+.btn--login:hover {
+  background-color: var(--color-navy);
+}
+
+/* Navbar */
+.navbar { position: sticky; top: 0; z-index: 100; background: var(--color-bg); box-shadow: var(--shadow-sm); height: var(--navbar-height); }
+.navbar__inner { max-width: var(--max-width); height: 100%; margin-inline: auto; padding-inline: var(--space-3); display: flex; align-items: center; justify-content: space-between; }
+.navbar__logo { display: flex; align-items: center; gap: var(--space-1); font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--color-primary); }
+.navbar__logo img { height: 36px; width: auto; }
+.navbar__menu { display: flex; gap: var(--space-3); align-items: center; }
+.navbar__link { font-weight: 500; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color 0.15s ease; }
+.navbar__link.is-active, .navbar__link:hover { border-bottom-color: var(--color-accent); }
+.navbar__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: var(--space-1); }
+.navbar__toggle span { width: 24px; height: 2px; background: var(--color-navy); }
+
+.card { background: var(--color-white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-top: 3px solid var(--color-accent); padding: var(--space-3); }
+
+.hero { text-align: center; padding-block: var(--space-7); }
+.hero__title { font-size: 3rem; letter-spacing: 2px; color: var(--color-primary); }
+.hero__subtitle { font-style: italic; font-size: 1.25rem; color: var(--color-accent); margin-top: var(--space-1); }
+.hero__desc { max-width: 560px; margin: var(--space-3) auto; }
+.hero__cta { display: flex; gap: var(--space-2); justify-content: center; margin-top: var(--space-3); }
+.hero .btn--outline { border-color: var(--color-primary); color: var(--color-primary); }
+
+.tentang { text-align: center; max-width: 700px; }
+.tentang__quote { font-family: var(--font-heading); font-size: 1.5rem; font-style: italic; color: var(--color-primary); margin-top: var(--space-3); }
+
+.filosofi__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+.filosofi__card { background: var(--color-white); border-radius: var(--radius-md); padding: var(--space-4); box-shadow: var(--shadow-sm); }
+.filosofi__card h3 { color: var(--color-primary); margin-bottom: var(--space-1); }
+
+.materi__grid, .jadwal__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+.jadwal__note { text-align: center; font-style: italic; color: #6b7280; margin-top: var(--space-3); }
+
+.agenda__list { display: flex; flex-direction: column; gap: var(--space-2); }
+.agenda__item { display: flex; gap: var(--space-2); align-items: baseline; border-left: 3px solid var(--color-accent); padding-left: var(--space-2); }
+
+.dokumentasi__filter { display: flex; gap: var(--space-1); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-3); }
+.filter-btn { padding: var(--space-1) var(--space-2); border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: transparent; color: var(--color-primary); cursor: pointer; }
+.filter-btn.is-active { background: var(--color-primary); color: var(--color-white); }
+
+.dokumentasi__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+
+/* Dikembalikan ke ukuran & desain bersih sebelumnya (Cover & Tinggi 220px) */
+.dokumentasi__grid img { 
+  border-radius: var(--radius-sm); 
+  cursor: pointer; 
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border: 1px solid rgba(27, 75, 102, 0.2);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dokumentasi__grid img:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+}
+
+.btn-selengkapnya { display: block; margin: var(--space-3) auto 0; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-accent); background: transparent; color: var(--color-primary); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.15s ease; }
+.btn-selengkapnya:hover { background: var(--color-accent); color: var(--color-navy); }
+
+.modal { position: fixed; inset: 0; background: rgba(13, 27, 42, 0.9); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 200; }
+.modal[hidden] { display: none; }
+.modal__image { max-width: 90vw; max-height: 80vh; border-radius: var(--radius-sm); object-fit: contain; }
+.modal__caption { color: var(--color-white); margin-top: var(--space-2); }
+.modal__close { position: absolute; top: var(--space-3); right: var(--space-3); background: none; border: none; color: var(--color-white); font-size: 2rem; cursor: pointer; }
+
+.testimoni__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+
+/* Testimoni card agar tetap rapi dan sejajar posisinya */
+.testimoni__card { 
+  background: var(--color-white); 
+  border-radius: var(--radius-md); 
+  padding: var(--space-3); 
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.testimoni__quote { font-style: italic; }
+.testimoni__nama { margin-top: var(--space-2); font-weight: 600; color: var(--color-primary); }
+
+.lokasi__content { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+.lokasi__nama { font-weight: 700; font-size: 1.25rem; }
+.lokasi__alamat { margin-block: var(--space-1) var(--space-3); }
+.lokasi__map iframe { border-radius: var(--radius-md); }
+
+.footer { background: var(--color-navy); color: var(--color-bg); text-align: center; padding: var(--space-4) var(--space-3); }
+.footer__brand { font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: var(--space-2); }
+.footer__contact { display: flex; gap: var(--space-3); justify-content: center; margin-bottom: var(--space-2); }
+.footer__contact a:hover { color: var(--color-accent); }
+.footer__copyright { font-size: 0.85rem; opacity: 0.7; }
+
+/* Responsive */
+@media (min-width: 768px) {
+  .filosofi__grid, .dokumentasi__grid { grid-template-columns: repeat(2, 1fr); }
+  .jadwal__grid, .materi__grid, .testimoni__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .navbar__toggle { display: none; }
+  .filosofi__grid { grid-template-columns: repeat(2, 1fr); }
+  .materi__grid, .jadwal__grid, .testimoni__grid { grid-template-columns: repeat(3, 1fr); }
+  .dokumentasi__grid { grid-template-columns: repeat(4, 1fr); }
+  .lokasi__content { grid-template-columns: 1fr 1fr; align-items: center; }
+}
+@media (max-width: 1023px) {
+  .navbar__toggle { display: flex; }
+  .navbar__menu {
+    position: fixed; top: var(--navbar-height); right: 0; height: calc(100vh - var(--navbar-height)); width: 70%; max-width: 300px;
+    background: var(--color-bg); flex-direction: column; padding: var(--space-3); box-shadow: var(--shadow-md);
+    transform: translateX(100%); transition: transform 0.25s ease;
+    align-items: flex-start;
+  }
+  .navbar__menu.is-open { transform: translateX(0); }
+  .btn--login { margin-left: 0; margin-top: 1rem; width: 100%; text-align: center; }
+  .hero__cta { flex-direction: column; }
+  .btn { text-align: center; }
+}

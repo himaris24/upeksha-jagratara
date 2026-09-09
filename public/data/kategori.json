@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "latihan",
+      "label": "Latihan"
+    },
+    {
+      "id": "kegiatan",
+      "label": "Kegiatan"
+    },
+    {
+      "id": "prestasi",
+      "label": "Prestasi"
+    },
+    {
+      "id": "tempat",
+      "label": "Tempat"
+    }
+  ]
+}
