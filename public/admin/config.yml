@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: "https://sveltia-cms-auth.harisadrianramadhani.workers.dev"
 
+site_name: "Panel Admin Upeksha Jagratara"
 logo_url: "https://upeksha-jagratara.netlify.app/assets/logo/logo-full-lockup.png"
 locale: "id_ID"
 display_url: "https://upeksha-jagratara.netlify.app"
