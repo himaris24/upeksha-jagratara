@@ -1,15 +1,22 @@
 {
-    "name": "Panel Admin Upeksha Jagratara",
-    "short_name": "UJ Admin",
-    "start_url": "./",
-    "display": "standalone",
-    "background_color": "#F7F5F0",
-    "theme_color": "#1B4B66",
-    "icons": [
-        {
-            "src": "../assets/logo/favicon.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "name": "Panel Admin Upeksha Jagratara",
+  "short_name": "Admin UJ",
+  "start_url": "/admin/",
+  "display": "standalone",
+  "background_color": "#F7F5F0",
+  "theme_color": "#1B4B66",
+  "icons": [
+    {
+      "src": "/assets/logo/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
