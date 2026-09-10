@@ -177,3 +177,16 @@ section { max-width: var(--max-width); margin-inline: auto; padding: var(--space
   .hero__cta { flex-direction: column; }
   .btn { text-align: center; }
 }
+
+/* Penyesuaian Tombol Lokasi Maps agar Center di Mobile */
+@media (max-width: 1023px) {
+  .lokasi__info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lokasi__info .btn {
+    margin-inline: auto;
+  }
+}
