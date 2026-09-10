@@ -4,10 +4,43 @@
   <meta charset="UTF-8">
   <title>Admin — Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
+  <style>
+    @media (max-width: 767px) {
+      .mobile-admin-title {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        line-height: 1.4 !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Versi dikunci (bukan auto-latest). Judul "Panel Admin Upeksha Jagratara"
-       sekarang diatur lewat app_title di config.yml — bukan script JS lagi. -->
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
+  <script>
+    let hasChanged = false;
+    const observer = new MutationObserver(() => {
+      if (hasChanged) return; 
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      while (node = walker.nextNode()) {
+        if (node.nodeValue.trim() === 'Panel Admin Upeksha Jagratara' || node.nodeValue.trim() === 'Sveltia CMS') {
+          const parent = node.parentElement;
+          if (parent) {
+            if (window.innerWidth < 768) {
+              parent.innerHTML = 'Panel Admin<br>Upeksha Jagratara';
+              parent.classList.add('mobile-admin-title');
+            } else {
+              node.nodeValue = 'Panel Admin Upeksha Jagratara';
+            }
+          }
+          hasChanged = true;
+          observer.disconnect();
+          break;
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
 </body>
 </html>
