@@ -3,11 +3,12 @@
    render Materi (F-04) & Testimoni (F-08)
    ========================================================= */
 
-/* ---------- Navbar toggle (mobile) ---------- */
+/* ---------- Navbar toggle (mobile) & Auto-Close ---------- */
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 
-navToggle.addEventListener('click', () => {
+navToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
   const isOpen = navMenu.classList.toggle('is-open');
   navToggle.setAttribute('aria-expanded', isOpen);
 });
@@ -17,6 +18,14 @@ navMenu.querySelectorAll('.navbar__link').forEach((link) => {
     navMenu.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded', 'false');
   });
+});
+
+// Tutup navbar otomatis jika mengklik area kosong di luar menu
+document.addEventListener('click', (e) => {
+  if (navMenu.classList.contains('is-open') && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+    navMenu.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
 });
 
 /* ---------- Active nav saat scroll ---------- */
@@ -125,7 +134,7 @@ async function renderTestimoni() {
     });
     container.insertAdjacentElement('afterend', moreBtn);
   } else if (testimoniIsExpanded && items.length > TESTIMONI_LIMIT) {
-    // Tombolopsional untuk menutup kembali jika sudah dibuka semua
+    // Tombol opsional untuk menutup kembali jika sudah dibuka semua
     const lessBtn = document.createElement('button');
     lessBtn.id = 'testimoniMoreBtn';
     lessBtn.className = 'btn-selengkapnya';
