@@ -1,0 +1,15 @@
+{
+    "name": "Panel Admin Upeksha Jagratara",
+    "short_name": "UJ Admin",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#F7F5F0",
+    "theme_color": "#1B4B66",
+    "icons": [
+        {
+            "src": "../assets/logo/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
