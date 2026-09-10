@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
-  <title>Panel Admin Upeksha Jagratara</title>
+  <title>Admin — Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
+  
+  <!-- Konfigurasi Ikon & Tema agar muncul saat di-install sebagai Aplikasi (PWA) -->
+  <meta name="theme-color" content="#1B4B66">
+  <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo/favicon.png">
 
-  <!-- Favicon logo asli — ikon tab browser -->
-  <link rel="icon" type="image/png" href="../assets/logo/favicon.png">
-  <link rel="apple-touch-icon" href="../assets/logo/favicon.png">
-
-  <!-- Web App Manifest — WAJIB biar Brave/Chromium "Install as App" ambil logo asli -->
-  <link rel="manifest" href="manifest.json">
+  <style>
+    @media (max-width: 767px) {
+      .mobile-admin-title {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        line-height: 1.4 !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Versi dikunci (bukan auto-latest). Judul "Panel Admin Upeksha Jagratara"
-       diatur lewat app_title di config.yml — TIDAK PAKAI script JS manual lagi
-       (fragile, gampang rusak kalau CMS update strukturnya). -->
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
+  <script>
+    let hasChanged = false;
+    const observer = new MutationObserver(() => {
+      if (hasChanged) return; 
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      while (node = walker.nextNode()) {
+        if (node.nodeValue.trim() === 'Panel Admin Upeksha Jagratara' || node.nodeValue.trim() === 'Sveltia CMS') {
+          const parent = node.parentElement;
+          if (parent) {
+            if (window.innerWidth < 768) {
+              parent.innerHTML = 'Panel Admin<br>Upeksha Jagratara';
+              parent.classList.add('mobile-admin-title');
+            } else {
+              node.nodeValue = 'Panel Admin Upeksha Jagratara';
+            }
+          }
+          hasChanged = true;
+          observer.disconnect();
+          break;
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
 </body>
-
 </html>
