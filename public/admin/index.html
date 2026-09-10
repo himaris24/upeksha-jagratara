@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <title>Admin — Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="../assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/logo/favicon.png">
   <style>
     @media (max-width: 767px) {
       .mobile-admin-title {
@@ -15,12 +18,13 @@
     }
   </style>
 </head>
+
 <body>
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
   <script>
     let hasChanged = false;
     const observer = new MutationObserver(() => {
-      if (hasChanged) return; 
+      if (hasChanged) return;
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
       let node;
       while (node = walker.nextNode()) {
@@ -43,4 +47,5 @@
     observer.observe(document.body, { childList: true, subtree: true });
   </script>
 </body>
+
 </html>
