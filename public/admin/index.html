@@ -1,56 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
   <title>Admin — Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
-  <style>
-    /* Styling khusus responsif untuk teks Panel Admin di perangkat Mobile */
-    @media (max-width: 767px) {
-      .mobile-admin-title {
-        display: block !important;
-        text-align: center !important;
-        width: 100% !important;
-      }
-    }
-  </style>
 </head>
-
 <body>
-  <!-- Aplikasi CMS -->
+  <!-- Versi dikunci (bukan auto-latest). Judul "Panel Admin Upeksha Jagratara"
+       sekarang diatur lewat app_title di config.yml — bukan script JS lagi. -->
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
-
-  <!-- Script DOM Manipulation dengan pemisahan teks khusus Mobile -->
-  <script>
-    let hasChanged = false;
-    const observer = new MutationObserver(() => {
-      if (hasChanged) return; 
-      
-      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-      let node;
-      while (node = walker.nextNode()) {
-        if (node.nodeValue.trim() === 'Sveltia CMS') {
-          const parentElement = node.parentElement;
-          if (parentElement) {
-            // Cek apakah diakses dari perangkat mobile (lebar layar < 768px)
-            if (window.innerWidth < 768) {
-              parentElement.innerHTML = 'Panel Admin<br>Upeksha Jagratara';
-              parentElement.classList.add('mobile-admin-title');
-            } else {
-              // Jika di desktop, biarkan dalam satu baris
-              node.nodeValue = 'Panel Admin Upeksha Jagratara';
-            }
-          }
-          hasChanged = true;
-          observer.disconnect();
-          break;
-        }
-      }
-    });
-    
-    observer.observe(document.body, { childList: true, subtree: true });
-  </script>
 </body>
-
 </html>
