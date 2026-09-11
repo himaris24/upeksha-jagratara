@@ -10,9 +10,36 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#1B4B66">
 
-  <!-- Favicon Standar & Apple Icon -->
+  <!-- Favicon Utama -->
   <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
   <link rel="apple-touch-icon" href="/assets/logo/favicon-192.png">
+
+  <script>
+    // Cegah Sveltia CMS menimpa favicon dengan logo full-lockup secara dinamis
+    const observerHead = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.tagName === 'LINK' && node.getAttribute('rel')?.includes('icon')) {
+            if (!node.href.includes('favicon.png')) {
+              node.href = '/assets/logo/favicon.png';
+            }
+          }
+        });
+      });
+    });
+    observerHead.observe(document.head, { childList: true, subtree: true });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setInterval(() => {
+        const icons = document.querySelectorAll("link[rel*='icon']");
+        icons.forEach(icon => {
+          if (!icon.href.includes('favicon.png')) {
+            icon.href = '/assets/logo/favicon.png';
+          }
+        });
+      }, 500);
+    });
+  </script>
 
   <style>
     @media (max-width: 767px) {
@@ -29,16 +56,6 @@
 <body>
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
   <script>
-    // Paksa browser & Sveltia mempertahankan favicon bulat/kotak, bukan full-lockup
-    function forceFavicon() {
-      let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-      link.type = 'image/png';
-      link.rel = 'shortcut icon';
-      link.href = '/assets/logo/favicon.png';
-      document.getElementsByTagName('head')[0].appendChild(link);
-    }
-    setInterval(forceFavicon, 1000);
-
     let hasChanged = false;
     const observer = new MutationObserver(() => {
       if (hasChanged) return;
