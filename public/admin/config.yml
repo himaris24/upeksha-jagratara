@@ -25,16 +25,8 @@ collections:
             name: "items"
             widget: "list"
             fields:
-              - {
-                  label: "ID Kategori (huruf kecil tanpa spasi, cth: latihan)",
-                  name: "id",
-                  widget: "string",
-                }
-              - {
-                  label: "Nama Kategori (tampil di tombol filter)",
-                  name: "label",
-                  widget: "string",
-                }
+              - { label: "ID Kategori", name: "id", widget: "string" }
+              - { label: "Nama Kategori", name: "label", widget: "string" }
 
   - name: "jadwal"
     label: "Jadwal Latihan"
@@ -49,12 +41,7 @@ collections:
             widget: "list"
             fields:
               - { label: "Hari", name: "hari", widget: "string" }
-              - {
-                  label: "Waktu",
-                  name: "waktu",
-                  widget: "string",
-                  hint: "Contoh: 19.00–21.00",
-                }
+              - { label: "Waktu", name: "waktu", widget: "string" }
               - { label: "Lokasi", name: "lokasi", widget: "string" }
 
   - name: "agenda"
@@ -114,12 +101,7 @@ collections:
             widget: "list"
             fields:
               - { label: "Judul", name: "judul", widget: "string" }
-              - {
-                  label: "ID Kategori (ketik sesuai ID kategori, cth: latihan)",
-                  name: "kategori",
-                  widget: "string",
-                  hint: "Contoh: latihan, kegiatan, prestasi, tempat",
-                }
+              - { label: "ID Kategori", name: "kategori", widget: "string" }
               - {
                   label: "Tanggal Kegiatan",
                   name: "tanggal_upload",
