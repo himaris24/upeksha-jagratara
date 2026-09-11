@@ -7,16 +7,16 @@
     "theme_color": "#1B4B66",
     "icons": [
         {
-            "src": "/assets/logo/favicon.png",
+            "src": "/assets/logo/favicon-192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
             "src": "/assets/logo/favicon.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         }
     ]
 }

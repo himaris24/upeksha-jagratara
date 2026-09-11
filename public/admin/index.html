@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
-  <title>Admin — Upeksha Jagratara</title>
+  <title>Panel Admin Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
-  
-  <!-- Deklarasi Web App Manifest untuk memunculkan Logo saat di-install -->
+
+  <!-- Manifest — WAJIB buat icon shortcut/app terdeteksi -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#1B4B66">
+
+  <!-- Favicon — ikon tab & fallback icon app (BUKAN logo full lockup) -->
   <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/logo/favicon.png">
+  <link rel="shortcut icon" href="/assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo/favicon-192.png">
 
   <style>
     @media (max-width: 767px) {
@@ -22,12 +26,16 @@
     }
   </style>
 </head>
+
 <body>
+  <!-- Versi dikunci. Logo besar yang muncul di TENGAH halaman ini (splash CMS)
+       diatur oleh logo_url di config.yml (logo-full-lockup.png) — BUKAN dari sini.
+       File ini cuma ngatur favicon tab & ikon shortcut/app (pake favicon.png). -->
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
   <script>
     let hasChanged = false;
     const observer = new MutationObserver(() => {
-      if (hasChanged) return; 
+      if (hasChanged) return;
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
       let node;
       while (node = walker.nextNode()) {
@@ -50,4 +58,5 @@
     observer.observe(document.body, { childList: true, subtree: true });
   </script>
 </body>
+
 </html>
