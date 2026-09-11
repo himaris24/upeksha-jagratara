@@ -1,6 +1,6 @@
 {
     "id": "/admin/",
-    "name": "Upeksha Jagratara Admin",
+    "name": "Panel Admin Upeksha Jagratara",
     "short_name": "Admin UJ",
     "start_url": "/admin/",
     "scope": "/admin/",
