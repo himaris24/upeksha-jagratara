@@ -1,22 +1,22 @@
 {
-    "name": "Upeksha Admin",
-    "short_name": "Upeksha",
+    "name": "Upeksha Jagratara Admin",
+    "short_name": "Admin UJ",
     "start_url": "/admin/",
     "display": "standalone",
     "background_color": "#0D1B2A",
     "theme_color": "#1B4B66",
     "icons": [
         {
-            "src": "https://upeksha-jagratara.netlify.app/assets/logo/favicon-192.png",
+            "src": "/assets/logo/favicon-192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "https://upeksha-jagratara.netlify.app/assets/logo/favicon.png",
+            "src": "/assets/logo/favicon.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         }
     ]
 }

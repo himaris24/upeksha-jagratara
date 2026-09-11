@@ -6,14 +6,13 @@
   <title>Panel Admin Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
 
-  <!-- PWA Manifest khusus jalur admin -->
-  <link rel="manifest" href="/admin/manifest.json">
+  <!-- PWA Manifest & Theme -->
+  <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#1B4B66">
 
-  <!-- Favicon mutlak untuk tab & shortcut -->
-  <link rel="icon" type="image/png" href="https://upeksha-jagratara.netlify.app/assets/logo/favicon.png">
-  <link rel="shortcut icon" href="https://upeksha-jagratara.netlify.app/assets/logo/favicon.png">
-  <link rel="apple-touch-icon" href="https://upeksha-jagratara.netlify.app/assets/logo/favicon-192.png">
+  <!-- Favicon Standar & Apple Icon -->
+  <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo/favicon-192.png">
 
   <style>
     @media (max-width: 767px) {
@@ -30,6 +29,16 @@
 <body>
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
   <script>
+    // Paksa browser & Sveltia mempertahankan favicon bulat/kotak, bukan full-lockup
+    function forceFavicon() {
+      let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+      link.type = 'image/png';
+      link.rel = 'shortcut icon';
+      link.href = '/assets/logo/favicon.png';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    setInterval(forceFavicon, 1000);
+
     let hasChanged = false;
     const observer = new MutationObserver(() => {
       if (hasChanged) return;
