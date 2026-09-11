@@ -6,14 +6,14 @@
   <title>Panel Admin Upeksha Jagratara</title>
   <meta name="robots" content="noindex">
 
-  <!-- Manifest — WAJIB buat icon shortcut/app terdeteksi -->
+  <!-- PWA Manifest & Theme -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#1B4B66">
 
-  <!-- Favicon — ikon tab & fallback icon app (BUKAN logo full lockup) -->
-  <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
-  <link rel="shortcut icon" href="/assets/logo/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/logo/favicon-192.png">
+  <!-- Favicon & App Shortcut Icons -->
+  <link rel="icon" type="image/png" href="https://upeksha-jagratara.netlify.app/assets/logo/favicon.png">
+  <link rel="shortcut icon" href="https://upeksha-jagratara.netlify.app/assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="https://upeksha-jagratara.netlify.app/assets/logo/favicon-192.png">
 
   <style>
     @media (max-width: 767px) {
@@ -28,9 +28,6 @@
 </head>
 
 <body>
-  <!-- Versi dikunci. Logo besar yang muncul di TENGAH halaman ini (splash CMS)
-       diatur oleh logo_url di config.yml (logo-full-lockup.png) — BUKAN dari sini.
-       File ini cuma ngatur favicon tab & ikon shortcut/app (pake favicon.png). -->
   <script src="https://unpkg.com/@sveltia/cms@0.171.0/dist/sveltia-cms.js" type="module"></script>
   <script>
     let hasChanged = false;
