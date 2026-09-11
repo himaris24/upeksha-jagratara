@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://upeksha-jagratara.netlify.app/sitemap.xml
+Sitemap: https://upeksha-jagratara.vercel.app/sitemap.xml

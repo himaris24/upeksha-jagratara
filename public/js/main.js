@@ -1,6 +1,6 @@
 /* =========================================================
    main.js — Navbar interaktif, active nav, footer year,
-   render Materi (F-04) & Testimoni (F-08)
+   serta merender konten dinamis: Tentang, Filosofi, Materi & Testimoni
    ========================================================= */
 
 /* ---------- Navbar toggle (mobile) & Auto-Close ---------- */
@@ -20,7 +20,6 @@ navMenu.querySelectorAll('.navbar__link').forEach((link) => {
   });
 });
 
-// Tutup navbar otomatis jika mengklik area kosong di luar menu
 document.addEventListener('click', (e) => {
   if (navMenu.classList.contains('is-open') && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
     navMenu.classList.remove('is-open');
@@ -50,7 +49,7 @@ sections.forEach((section) => observer.observe(section));
 /* ---------- Tahun otomatis di footer ---------- */
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-/* ---------- Helper fetch JSON (dipakai ulang di semua file JS) ---------- */
+/* ---------- Helper fetch JSON ---------- */
 export async function fetchJSON(path) {
   try {
     const res = await fetch(path);
@@ -60,6 +59,30 @@ export async function fetchJSON(path) {
     console.error(err);
     return null;
   }
+}
+
+/* ---------- F-02: Render Tentang ---------- */
+async function renderTentang() {
+  const container = document.getElementById('tentangContainer');
+  const data = await fetchJSON('data/tentang.json');
+  if (!data) return;
+  container.innerHTML = `
+    <p class="tentang__text">${data.teks}</p>
+    <blockquote class="tentang__quote">"${data.quote}"</blockquote>
+  `;
+}
+
+/* ---------- F-03: Render Filosofi ---------- */
+async function renderFilosofi() {
+  const container = document.getElementById('filosofiContainer');
+  const data = await fetchJSON('data/filosofi.json');
+  if (!data || !data.items) return;
+  container.innerHTML = data.items.map(item => `
+    <div class="filosofi__card">
+      <h3>${item.judul}</h3>
+      <p>${item.deskripsi}</p>
+    </div>
+  `).join('');
 }
 
 /* ---------- F-04: Render Materi ---------- */
@@ -92,12 +115,11 @@ async function renderMateri() {
 
 /* ---------- F-08: Render Testimoni (+ Tombol Selengkapnya) ---------- */
 let testimoniIsExpanded = false;
-const TESTIMONI_LIMIT = 4; // Batas jumlah testimoni awal yang ditampilkan
+const TESTIMONI_LIMIT = 4;
 
 async function renderTestimoni() {
   const container = document.getElementById('testimoniContainer');
-  
-  // Bersihkan tombol "Selengkapnya" lama agar tidak duplikat
+
   const existingBtn = document.getElementById('testimoniMoreBtn');
   if (existingBtn) existingBtn.remove();
 
@@ -121,7 +143,6 @@ async function renderTestimoni() {
     )
     .join('');
 
-  // Buat tombol Selengkapnya jika jumlah data melebihi batas limit
   if (shouldLimit) {
     const sisa = items.length - TESTIMONI_LIMIT;
     const moreBtn = document.createElement('button');
@@ -134,7 +155,6 @@ async function renderTestimoni() {
     });
     container.insertAdjacentElement('afterend', moreBtn);
   } else if (testimoniIsExpanded && items.length > TESTIMONI_LIMIT) {
-    // Tombol opsional untuk menutup kembali jika sudah dibuka semua
     const lessBtn = document.createElement('button');
     lessBtn.id = 'testimoniMoreBtn';
     lessBtn.className = 'btn-selengkapnya';
@@ -147,5 +167,8 @@ async function renderTestimoni() {
   }
 }
 
+// Inisialisasi
+renderTentang();
+renderFilosofi();
 renderMateri();
 renderTestimoni();

@@ -13,6 +13,32 @@ media_folder: "public/assets/images"
 public_folder: "/assets/images"
 
 collections:
+  - name: "info_utama"
+    label: "Informasi Utama"
+    files:
+      - file: "public/data/tentang.json"
+        label: "Tentang Upeksha"
+        name: "tentang"
+        format: "json"
+        fields:
+          - {
+              label: "Teks Tentang (Boleh pakai tag HTML <strong> dsb)",
+              name: "teks",
+              widget: "text",
+            }
+          - { label: "Kutipan (Quote)", name: "quote", widget: "string" }
+      - file: "public/data/filosofi.json"
+        label: "Filosofi Kami"
+        name: "filosofi"
+        format: "json"
+        fields:
+          - label: "Daftar Filosofi"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Judul Filosofi", name: "judul", widget: "string" }
+              - { label: "Deskripsi", name: "deskripsi", widget: "text" }
+
   - name: "kategori"
     label: "Kategori Dokumentasi"
     files:
