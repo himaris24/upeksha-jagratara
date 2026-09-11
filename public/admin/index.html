@@ -10,36 +10,9 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#1B4B66">
 
-  <!-- Favicon Utama -->
-  <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/logo/favicon-192.png">
-
-  <script>
-    // Cegah Sveltia CMS menimpa favicon dengan logo full-lockup secara dinamis
-    const observerHead = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.tagName === 'LINK' && node.getAttribute('rel')?.includes('icon')) {
-            if (!node.href.includes('favicon.png')) {
-              node.href = '/assets/logo/favicon.png';
-            }
-          }
-        });
-      });
-    });
-    observerHead.observe(document.head, { childList: true, subtree: true });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      setInterval(() => {
-        const icons = document.querySelectorAll("link[rel*='icon']");
-        icons.forEach(icon => {
-          if (!icon.href.includes('favicon.png')) {
-            icon.href = '/assets/logo/favicon.png';
-          }
-        });
-      }, 500);
-    });
-  </script>
+  <!-- Favicon & Touch Icon dengan cache buster -->
+  <link rel="icon" type="image/png" href="/assets/logo/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="/assets/logo/favicon-192.png?v=2">
 
   <style>
     @media (max-width: 767px) {
